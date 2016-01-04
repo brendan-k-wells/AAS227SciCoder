@@ -63,11 +63,11 @@ def plot_spectrum(spectrum):
 
 
 if __name__ == "__main__":
-    spec_filename = "cosmos-01-G141_21477.1D.fits"
+    spec_filename = "../cosmos-01-G141_21477.1D.fits"
     spec = build_spectrum(spec_filename)
     plot_spectrum(spec)    
     
-    pz_filename = "cosmos-01-G141_21477.new_zfit.pz.fits"
+    pz_filename = "../cosmos-01-G141_21477.new_zfit.pz.fits"
     prob = build_probdist(pz_filename)
     print prob.p(2.1,2.3)
     plot_pz(prob)

@@ -27,8 +27,8 @@ def plot_spectrum(spectrum):
 
 
 if __name__ == "__main__":
-    spec_filename = "cosmos-01-G141_21477.1D.fits"
-    pz_filename = "cosmos-01-G141_21477.new_zfit.pz.fits"
+    spec_filename = "../cosmos-01-G141_21477.1D.fits"
+    pz_filename = "../cosmos-01-G141_21477.new_zfit.pz.fits"
     
     prob = Pz(Ffh(pz_filename))
     print prob.p(2.1,2.3)
