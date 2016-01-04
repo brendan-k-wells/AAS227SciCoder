@@ -1,4 +1,5 @@
 import numpy as np
+from .errors import *
 
 
 class ProbDist(object):
@@ -8,7 +9,14 @@ class ProbDist(object):
         and probability data (p_data)
         """
         self.z_data = z_data
+        if z_data is None:
+            raise RedshiftDataIsNone("The redshift data is None")
         self.p_data = p_data
+        if p_data is None:
+            raise ProbabilityDataIsNone("The probability data is None")
+            
+        if len(p_data) != len(z_data):
+            raise DataLengthNotEqual("The probability and redshift data must be the same length")
     
     def _identify_bin_range(self, low, high):
         """

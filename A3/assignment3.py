@@ -1,9 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from ProbDist import ProbDist
-from Spectrum import Spectrum
-
 from astropy.io import fits
+
+import sys, os, os.path
+pwd = os.getcwd()
+sys.path += [os.path.join(pwd, 'workModule/source')]
+
+from workModule.Spectrum import Spectrum
+from workModule.ProbDist import ProbDist
 
 
 
@@ -63,11 +67,11 @@ def plot_spectrum(spectrum):
 
 
 if __name__ == "__main__":
-    spec_filename = "cosmos-01-G141_21477.1D.fits"
+    spec_filename = "../cosmos-01-G141_21477.1D.fits"
     spec = build_spectrum(spec_filename)
     plot_spectrum(spec)    
     
-    pz_filename = "cosmos-01-G141_21477.new_zfit.pz.fits"
+    pz_filename = "../cosmos-01-G141_21477.new_zfit.pz.fits"
     prob = build_probdist(pz_filename)
     print prob.p(2.1,2.3)
     plot_pz(prob)
